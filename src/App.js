@@ -1,9 +1,8 @@
 import "./App.css";
 // Import the GitHub icon from react-icons
 import { FaGithub } from "react-icons/fa";
-// Import parachute-like icons options
+// Import parachute icon
 import { GiParachute } from "react-icons/gi"; // Most literal parachute icon
-import { MdOutlineAir } from "react-icons/md"; // Alternative minimalist option
 
 function App() {
   return (

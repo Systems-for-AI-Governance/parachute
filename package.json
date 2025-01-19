@@ -37,5 +37,8 @@
       "last 1 safari version"
     ]
   },
-  "homepage": "https://systems-for-ai-governance.github.io/parachute"
+  "homepage": "https://systems-for-ai-governance.github.io/parachute",
+  "devDependencies": {
+    "@babel/plugin-proposal-private-property-in-object": "^7.21.11"
+  }
 }
