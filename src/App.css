@@ -187,3 +187,190 @@
   color: #4299e1;
   margin-bottom: 1rem;
 }
+
+.testimonials-section {
+  padding: 4rem 2rem;
+  background-color: #f5f5f5;
+  text-align: center;
+}
+
+.testimonials-section h2 {
+  margin-bottom: 2rem;
+  color: #333;
+}
+
+.testimonial-carousel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.testimonial-content {
+  flex: 1;
+  padding: 0 2rem;
+  min-height: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.quote {
+  font-size: 1.25rem;
+  font-style: italic;
+  margin-bottom: 1rem;
+  color: #444;
+}
+
+.author {
+  font-weight: 600;
+  color: #666;
+}
+
+.carousel-btn {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: #666;
+  cursor: pointer;
+  padding: 1rem;
+  transition: color 0.3s ease;
+}
+
+.carousel-btn:hover {
+  color: #333;
+}
+
+.offerings-section {
+  padding: 4rem 2rem;
+  background-color: white;
+}
+
+.offerings-section h2 {
+  text-align: center;
+  color: #2d3748;
+  font-size: 2.5rem;
+  margin-bottom: 3rem;
+}
+
+.offerings-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.offering-card {
+  background-color: #f8f9fa;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.offering-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+}
+
+.offering-card h3 {
+  color: #2d3748;
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.offering-card p {
+  color: #4a5568;
+  line-height: 1.6;
+  font-size: 1.1rem;
+}
+
+@media (max-width: 768px) {
+  .offerings-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .offerings-section {
+    padding: 3rem 1rem;
+  }
+  
+  .offerings-section h2 {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+  }
+  
+  .offering-card h3 {
+    font-size: 1.3rem;
+  }
+  
+  .offering-card p {
+    font-size: 1rem;
+  }
+}
+
+.why-parachute-section {
+  padding: 4rem 2rem;
+  background-color: #f8f9fa;
+}
+
+.why-parachute-section h2 {
+  text-align: center;
+  color: #2d3748;
+  font-size: 2.5rem;
+  margin-bottom: 3rem;
+}
+
+.why-parachute-points {
+  max-width: 1000px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.point {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  text-align: left;
+}
+
+.point-icon {
+  color: #4299e1;
+  font-size: 1.5rem;
+  flex-shrink: 0;
+  margin-top: 0.2rem;
+}
+
+.point p {
+  color: #4a5568;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .why-parachute-section {
+    padding: 3rem 1rem;
+  }
+  
+  .why-parachute-section h2 {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+  }
+  
+  .point {
+    gap: 0.75rem;
+  }
+  
+  .point p {
+    font-size: 1rem;
+  }
+  
+  .point-icon {
+    font-size: 1.25rem;
+  }
+}
