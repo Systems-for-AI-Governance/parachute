@@ -3,7 +3,7 @@ import "./App.css";
 import { FaGithub } from "react-icons/fa";
 // Import parachute icon
 import { GiParachute } from "react-icons/gi"; // Most literal parachute icon
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 
 function App() {
@@ -80,6 +80,96 @@ function App() {
     "Provides model cards and user manuals as a by-product to ensure appropriate use in keeping with ONC's HTI-1 DSI requirements",
     "Provides detailed audit trails and compliance workflows to meet evolving regulatory standards like FDA SaMD",
   ];
+
+  const comparisonPoints = [
+    {
+      feature:
+        "Link AI project to organizational priorities and identified problems",
+      parachute: true,
+      others: false,
+    },
+    {
+      feature:
+        "Engages clinical, administrative, and compliance teams, fostering transparency and cross-functional collaboration.",
+      parachute: true,
+      others: false,
+    },
+    {
+      feature:
+        "Records decisions taken during development and implementation of the tool",
+      parachute: true,
+      others: false,
+    },
+    {
+      feature: "Helps manage updates, decommissioning, and scaling",
+      parachute: true,
+      others: false,
+    },
+    {
+      feature:
+        "Provides multiple checkpoints for ensuring validity of the AI solution",
+      parachute: true,
+      others: false,
+    },
+    {
+      feature:
+        "Provides model cards and user manuals as a by-product of the workflow to ensure appropriate use by end-users",
+      parachute: true,
+      others: false,
+    },
+    {
+      feature:
+        "Provides detailed audit trails and compliance workflows to meet evolving regulatory standards like SaMD and HTI-1",
+      parachute: true,
+      others: false,
+    },
+  ];
+
+  const complementaryFeatures = [
+    {
+      category: "Primary Audience for Tool",
+      parachute:
+        "Clinicians, compliance team, privacy team, legal team, IT PMO, Vendors, Data scientists, etc.",
+      mlOps: "Data Scientists, Clinicians",
+    },
+    {
+      category: "Primary purpose of the tool",
+      parachute:
+        "Evaluate and track AI initiatives in order to ensure regulatory compliance",
+      mlOps: "Monitor models for safety and accuracy",
+    },
+    {
+      category: "Documentation",
+      parachute:
+        "Provides detailed documentation beyond just model performance (ex: equity considerations, allocation of liability between vendor and hospital etc.)",
+      mlOps: "Limited to model performance monitoring",
+    },
+    {
+      category: "Risk Management",
+      parachute: {
+        main: "Tracks and mitigates:",
+        points: [
+          "Non-technical risks such as bias, liability, and ethical concerns using workflow control towers.",
+          "Technical risks (e.g., accuracy issues, data drift) and security risks (e.g., privilege escalation, unauthorized access, vulnerabilities) detected via seamless API integration with monitoring tools.",
+        ],
+      },
+      mlOps:
+        "Focuses on technical risks related to models (e.g., data drift, accuracy)",
+    },
+  ];
+
+  const integrations = [
+    { name: "Sharepoint", logo: "sharepoint.png" },
+    { name: "Signal One", logo: "signal-one.png" },
+    { name: "Email", logo: "email.png" },
+    { name: "ServiceNow", logo: "servicenow.png" },
+    { name: "MLFlow", logo: "mlflow.png" },
+    { name: "DVC", logo: "dvc.png" },
+    { name: "Microsoft Purview", logo: "purview.png" },
+  ];
+
+  // Double the integrations array for seamless infinite scroll
+  const doubledIntegrations = [...integrations, ...integrations];
 
   return (
     <div className="App">
@@ -159,6 +249,158 @@ function App() {
               <p>{point}</p>
             </div>
           ))}
+        </div>
+      </div>
+      <div className="comparison-section">
+        <h2>Key differences Between Parachute and Other GRC Solutions</h2>
+
+        <div className="comparison-table">
+          <div className="comparison-header">
+            <div className="feature-header">Feature</div>
+            <div className="solution-header">Parachute</div>
+            <div className="solution-header">Other GRC Solutions</div>
+          </div>
+
+          {comparisonPoints.map((point, index) => (
+            <div key={index} className="comparison-row">
+              <div className="feature-cell">{point.feature}</div>
+              <div className="solution-cell">
+                {point.parachute ? (
+                  <span className="check yes">YES</span>
+                ) : (
+                  <span className="check no">NO</span>
+                )}
+              </div>
+              <div className="solution-cell">
+                {point.others ? (
+                  <span className="check yes">YES</span>
+                ) : (
+                  <span className="check no">NO</span>
+                )}
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+      <div className="complementary-section">
+        <h2>How Parachute complements Your Monitoring Tools</h2>
+
+        <div className="complementary-table">
+          <div className="complementary-header">
+            <div className="category-header">Feature</div>
+            <div className="tool-header">Parachute</div>
+            <div className="tool-header">ML/Ops monitoring Tools</div>
+          </div>
+
+          {complementaryFeatures.map((feature, index) => (
+            <div key={index} className="complementary-row">
+              <div className="category-cell">{feature.category}</div>
+              <div className="tool-cell">
+                {typeof feature.parachute === "string" ? (
+                  feature.parachute
+                ) : (
+                  <div>
+                    <p>{feature.parachute.main}</p>
+                    <ul>
+                      {feature.parachute.points.map((point, i) => (
+                        <li key={i}>{point}</li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+              </div>
+              <div className="tool-cell">{feature.mlOps}</div>
+            </div>
+          ))}
+        </div>
+      </div>
+      <div className="integrations-section">
+        <h2>Integrations</h2>
+        <div className="integrations-container">
+          <div className="scroll-container">
+            {doubledIntegrations.map((integration, index) => (
+              <div key={index} className="integration-item">
+                {/* Fallback to name if logo isn't available */}
+                <div className="integration-content">
+                  <span className="integration-name">{integration.name}</span>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+      <div className="pricing-section" id="pricing">
+        <h2>Pricing</h2>
+        <div className="pricing-container">
+          {/* Community License Card */}
+          <div className="pricing-card free">
+            <div className="pricing-header">
+              <h3>Community License</h3>
+              <div className="price">Free</div>
+              <div className="license-type">Open Source License</div>
+            </div>
+
+            <div className="pricing-features">
+              <h4>Includes:</h4>
+              <ul>
+                <li>Core governance software</li>
+                <li>Compliance templates</li>
+                <li>Collaboration toolkits</li>
+              </ul>
+
+              <h4>Purpose:</h4>
+              <p>
+                Ensure accessibility for organizations to adopt the platform for
+                manual workflows and collaboration.
+              </p>
+
+              <h4>License:</h4>
+              <p>
+                Distributed under a permissive open-source license (Apache 2.0
+                or MIT)
+              </p>
+              <p className="exclusion-note">
+                *Excludes AI tools and MLOps adapters
+              </p>
+            </div>
+
+            <button className="pricing-cta primary-btn">Get Started</button>
+          </div>
+
+          {/* Commercial License Card */}
+          <div className="pricing-card premium">
+            <div className="pricing-header">
+              <h3>Commercial License</h3>
+              <div className="price">Paid Add-Ons</div>
+              <div className="license-type">Enterprise Features</div>
+            </div>
+
+            <div className="pricing-features">
+              <div className="addon-feature">
+                <h4>Automated Data Entry (AI Tools)</h4>
+                <div className="addon-price">$100/project</div>
+                <ul>
+                  <li>Automates data entry tasks</li>
+                  <li>Reduces manual input</li>
+                  <li>Improves accuracy</li>
+                  <li>API access or downloadable plugin</li>
+                </ul>
+              </div>
+
+              <div className="addon-feature">
+                <h4>MLOps Integration</h4>
+                <div className="addon-price">Custom pricing</div>
+                <ul>
+                  <li>Connects MLOps platforms</li>
+                  <li>Automatic metrics updates</li>
+                  <li>Project thresholds tracking</li>
+                  <li>Enterprise integration support</li>
+                </ul>
+              </div>
+            </div>
+
+            <button className="pricing-cta secondary-btn">Contact Sales</button>
+          </div>
         </div>
       </div>
     </div>
