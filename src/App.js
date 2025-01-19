@@ -3,7 +3,7 @@ import "./App.css";
 import { FaGithub } from "react-icons/fa";
 // Import parachute icon
 import { GiParachute } from "react-icons/gi"; // Most literal parachute icon
-import { useState, useEffect, useRef } from "react";
+import { useState } from "react";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 
 function App() {
