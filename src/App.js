@@ -38,7 +38,7 @@ function App() {
           <GiParachute className="hero-icon" />
           <h1>Parachute</h1>
           <h2>
-            The World's First Open-Source AI Governance Platform for Healthcare
+            The World's First Open-Source AI Governance Platform for Healthcare.
           </h2>
           <div className="cta-buttons">
             <button className="primary-btn">Get Started</button>
