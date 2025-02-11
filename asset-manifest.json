@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/parachute/static/css/main.dd55cb77.css",
-    "main.js": "/parachute/static/js/main.3f960cd8.js",
+    "main.css": "/parachute/static/css/main.ca9e90a6.css",
+    "main.js": "/parachute/static/js/main.b2fbccc7.js",
     "static/js/488.22807e7f.chunk.js": "/parachute/static/js/488.22807e7f.chunk.js",
     "index.html": "/parachute/index.html",
-    "main.dd55cb77.css.map": "/parachute/static/css/main.dd55cb77.css.map",
-    "main.3f960cd8.js.map": "/parachute/static/js/main.3f960cd8.js.map",
+    "main.ca9e90a6.css.map": "/parachute/static/css/main.ca9e90a6.css.map",
+    "main.b2fbccc7.js.map": "/parachute/static/js/main.b2fbccc7.js.map",
     "488.22807e7f.chunk.js.map": "/parachute/static/js/488.22807e7f.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.dd55cb77.css",
-    "static/js/main.3f960cd8.js"
+    "static/css/main.ca9e90a6.css",
+    "static/js/main.b2fbccc7.js"
   ]
 }
