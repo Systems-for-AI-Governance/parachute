@@ -1,10 +1,13 @@
 import "./App.css";
 // Import the GitHub icon from react-icons
-import { FaGithub } from "react-icons/fa";
+// import { FaGithub } from "react-icons/fa";
 // Import parachute icon
 import { GiParachute } from "react-icons/gi"; // Most literal parachute icon
 import { useState } from "react";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import Blog from './components/Blog';
+import Navbar from './components/Navbar';
 
 function App() {
   const testimonials = [
@@ -172,238 +175,247 @@ function App() {
   const doubledIntegrations = [...integrations, ...integrations];
 
   return (
-    <div className="App">
-      <nav className="navbar">
-        <div className="nav-brand">
-          <GiParachute className="brand-icon" /> Parachute
-        </div>
-        <div className="nav-links">
-          <a href="#pricing" className="nav-link">
-            Pricing
-          </a>
-          <a
-            href="https://systems-for-ai-governance.github.io/blog"
-            className="nav-link"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Blog
-          </a>
-          <a
-            href="https://github.com/systems-for-ai-governance/parachute"
-            className="nav-link github-link"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <FaGithub size={24} />
-          </a>
-        </div>
-      </nav>
-      <div className="hero-section">
-        <div className="hero-content">
-          <GiParachute className="hero-icon" />
-          <h1>Parachute</h1>
-          <h2>
-            The World's First Open-Source AI Governance Platform for Healthcare.
-          </h2>
-          <div className="cta-buttons">
-            <button className="primary-btn">Get Started</button>
-            <button className="secondary-btn">View Documentation</button>
-          </div>
-        </div>
-      </div>
-      <div className="testimonials-section">
-        <h2>What Healthcare Leaders Are Saying</h2>
-        <div className="testimonial-carousel">
-          <button className="carousel-btn prev" onClick={prevTestimonial}>
-            <FaChevronLeft />
-          </button>
-          <div className="testimonial-content">
-            <p className="quote">"{testimonials[currentTestimonial].quote}"</p>
-            <p className="author">
-              - {testimonials[currentTestimonial].author}
-            </p>
-          </div>
-          <button className="carousel-btn next" onClick={nextTestimonial}>
-            <FaChevronRight />
-          </button>
-        </div>
-      </div>
-      <div className="offerings-section">
-        <h2>Offering</h2>
-        <div className="offerings-grid">
-          {offerings.map((offering, index) => (
-            <div key={index} className="offering-card">
-              <h3>{offering.title}</h3>
-              <p>{offering.description}</p>
-            </div>
-          ))}
-        </div>
-      </div>
-      <div className="why-parachute-section">
-        <h2>Why Parachute?</h2>
-        <div className="why-parachute-points">
-          {whyParachutePoints.map((point, index) => (
-            <div key={index} className="point">
-              <GiParachute className="point-icon" />
-              <p>{point}</p>
-            </div>
-          ))}
-        </div>
-      </div>
-      <div className="comparison-section">
-        <h2>Key differences Between Parachute and Other GRC Solutions</h2>
-
-        <div className="comparison-table">
-          <div className="comparison-header">
-            <div className="feature-header">Feature</div>
-            <div className="solution-header">Parachute</div>
-            <div className="solution-header">Other GRC Solutions</div>
-          </div>
-
-          {comparisonPoints.map((point, index) => (
-            <div key={index} className="comparison-row">
-              <div className="feature-cell">{point.feature}</div>
-              <div className="solution-cell">
-                {point.parachute ? (
-                  <span className="check yes">YES</span>
-                ) : (
-                  <span className="check no">NO</span>
-                )}
-              </div>
-              <div className="solution-cell">
-                {point.others ? (
-                  <span className="check yes">YES</span>
-                ) : (
-                  <span className="check no">NO</span>
-                )}
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
-      <div className="complementary-section">
-        <h2>How Parachute complements Your Monitoring Tools</h2>
-
-        <div className="complementary-table">
-          <div className="complementary-header">
-            <div className="category-header">Feature</div>
-            <div className="tool-header">Parachute</div>
-            <div className="tool-header">ML/Ops monitoring Tools</div>
-          </div>
-
-          {complementaryFeatures.map((feature, index) => (
-            <div key={index} className="complementary-row">
-              <div className="category-cell">{feature.category}</div>
-              <div className="tool-cell">
-                {typeof feature.parachute === "string" ? (
-                  feature.parachute
-                ) : (
-                  <div>
-                    <p>{feature.parachute.main}</p>
-                    <ul>
-                      {feature.parachute.points.map((point, i) => (
-                        <li key={i}>{point}</li>
-                      ))}
-                    </ul>
-                  </div>
-                )}
-              </div>
-              <div className="tool-cell">{feature.mlOps}</div>
-            </div>
-          ))}
-        </div>
-      </div>
-      <div className="integrations-section">
-        <h2>Integrations</h2>
-        <div className="integrations-container">
-          <div className="scroll-container">
-            {doubledIntegrations.map((integration, index) => (
-              <div key={index} className="integration-item">
-                {/* Fallback to name if logo isn't available */}
-                <div className="integration-content">
-                  <span className="integration-name">{integration.name}</span>
+    <Router basename="/parachute">
+      <Navbar />
+      <Routes>
+        <Route path="/blog" element={<Blog />} />
+        <Route path="/" element={
+          <div className="App">
+            <div className="hero-section">
+              <div className="hero-content">
+                <GiParachute className="hero-icon" />
+                <h1>Parachute</h1>
+                <h2>
+                  The World's First Open-Source AI Governance Platform for Healthcare.
+                </h2>
+                <div className="cta-buttons">
+                  <a 
+                    href="https://calendly.com/anv2127-columbia/30min"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="primary-btn"
+                    style={{ textDecoration: 'none' }}
+                  >
+                    Get Started
+                  </a>
                 </div>
               </div>
-            ))}
-          </div>
-        </div>
-      </div>
-      <div className="pricing-section" id="pricing">
-        <h2>Pricing</h2>
-        <div className="pricing-container">
-          {/* Community License Card */}
-          <div className="pricing-card free">
-            <div className="pricing-header">
-              <h3>Community License</h3>
-              <div className="price">Free</div>
-              <div className="license-type">Open Source License</div>
             </div>
-
-            <div className="pricing-features">
-              <h4>Includes:</h4>
-              <ul>
-                <li>Core governance software</li>
-                <li>Compliance templates</li>
-                <li>Collaboration toolkits</li>
-              </ul>
-
-              <h4>Purpose:</h4>
-              <p>
-                Ensure accessibility for organizations to adopt the platform for
-                manual workflows and collaboration.
-              </p>
-
-              <h4>License:</h4>
-              <p>
-                Distributed under a permissive open-source license (Apache 2.0
-                or MIT)
-              </p>
-              <p className="exclusion-note">
-                *Excludes AI tools and MLOps adapters
-              </p>
-            </div>
-
-            <button className="pricing-cta primary-btn">Get Started</button>
-          </div>
-
-          {/* Commercial License Card */}
-          <div className="pricing-card premium">
-            <div className="pricing-header">
-              <h3>Commercial License</h3>
-              <div className="price">Paid Add-Ons</div>
-              <div className="license-type">Enterprise Features</div>
-            </div>
-
-            <div className="pricing-features">
-              <div className="addon-feature">
-                <h4>Automated Data Entry (AI Tools)</h4>
-                <div className="addon-price">$100/project</div>
-                <ul>
-                  <li>Automates data entry tasks</li>
-                  <li>Reduces manual input</li>
-                  <li>Improves accuracy</li>
-                  <li>API access or downloadable plugin</li>
-                </ul>
-              </div>
-
-              <div className="addon-feature">
-                <h4>MLOps Integration</h4>
-                <div className="addon-price">Custom pricing</div>
-                <ul>
-                  <li>Connects MLOps platforms</li>
-                  <li>Automatic metrics updates</li>
-                  <li>Project thresholds tracking</li>
-                  <li>Enterprise integration support</li>
-                </ul>
+            <div className="testimonials-section">
+              <h2>What Healthcare Leaders Are Saying</h2>
+              <div className="testimonial-carousel">
+                <button className="carousel-btn prev" onClick={prevTestimonial}>
+                  <FaChevronLeft />
+                </button>
+                <div className="testimonial-content">
+                  <p className="quote">"{testimonials[currentTestimonial].quote}"</p>
+                  <p className="author">
+                    - {testimonials[currentTestimonial].author}
+                  </p>
+                </div>
+                <button className="carousel-btn next" onClick={nextTestimonial}>
+                  <FaChevronRight />
+                </button>
               </div>
             </div>
+            <div className="offerings-section">
+              <h2>Offering</h2>
+              <div className="offerings-grid">
+                {offerings.map((offering, index) => (
+                  <div key={index} className="offering-card">
+                    <h3>{offering.title}</h3>
+                    <p>{offering.description}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+            <div className="why-parachute-section">
+              <h2>Why Parachute?</h2>
+              <div className="why-parachute-points">
+                {whyParachutePoints.map((point, index) => (
+                  <div key={index} className="point">
+                    <GiParachute className="point-icon" />
+                    <p>{point}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+            <div className="comparison-section">
+              <h2>Key differences Between Parachute and Other GRC Solutions</h2>
 
-            <button className="pricing-cta secondary-btn">Contact Sales</button>
+              <div className="comparison-table">
+                <div className="comparison-header">
+                  <div className="feature-header">Feature</div>
+                  <div className="solution-header">Parachute</div>
+                  <div className="solution-header">Other GRC Solutions</div>
+                </div>
+
+                {comparisonPoints.map((point, index) => (
+                  <div key={index} className="comparison-row">
+                    <div className="feature-cell">{point.feature}</div>
+                    <div className="solution-cell">
+                      {point.parachute ? (
+                        <span className="check yes">YES</span>
+                      ) : (
+                        <span className="check no">NO</span>
+                      )}
+                    </div>
+                    <div className="solution-cell">
+                      {point.others ? (
+                        <span className="check yes">YES</span>
+                      ) : (
+                        <span className="check no">NO</span>
+                      )}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+            <div className="complementary-section">
+              <h2>How Parachute complements Your Monitoring Tools</h2>
+
+              <div className="complementary-table">
+                <div className="complementary-header">
+                  <div className="category-header">Feature</div>
+                  <div className="tool-header">Parachute</div>
+                  <div className="tool-header">ML/Ops monitoring Tools</div>
+                </div>
+
+                {complementaryFeatures.map((feature, index) => (
+                  <div key={index} className="complementary-row">
+                    <div className="category-cell">{feature.category}</div>
+                    <div className="tool-cell">
+                      {typeof feature.parachute === "string" ? (
+                        feature.parachute
+                      ) : (
+                        <div>
+                          <p>{feature.parachute.main}</p>
+                          <ul>
+                            {feature.parachute.points.map((point, i) => (
+                              <li key={i}>{point}</li>
+                            ))}
+                          </ul>
+                        </div>
+                      )}
+                    </div>
+                    <div className="tool-cell">{feature.mlOps}</div>
+                  </div>
+                ))}
+              </div>
+            </div>
+            <div className="integrations-section">
+              <h2>Integrations</h2>
+              <div className="integrations-container">
+                <div className="scroll-container">
+                  {doubledIntegrations.map((integration, index) => (
+                    <div key={index} className="integration-item">
+                      {/* Fallback to name if logo isn't available */}
+                      <div className="integration-content">
+                        <span className="integration-name">{integration.name}</span>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+            <div className="pricing-section" id="pricing">
+              <h2>Pricing</h2>
+              <div className="pricing-container">
+                {/* Community License Card */}
+                <div className="pricing-card free">
+                  <div className="pricing-header">
+                    <h3>Community License</h3>
+                    <div className="price">Free</div>
+                    <div className="license-type">Open Source License</div>
+                  </div>
+
+                  <div className="pricing-features">
+                    <h4>Core Features:</h4>
+                    <ul>
+                      <li>Core governance software</li>
+                      <li>Compliance templates</li>
+                      <li>Collaboration toolkits</li>
+                      <li>Basic documentation</li>
+                      <li>Community support</li>
+                      <li>Manual workflows</li>
+                    </ul>
+
+                    <h4>Purpose:</h4>
+                    <p>
+                      Ensure accessibility for organizations to adopt the platform for
+                      manual workflows and collaboration.
+                    </p>
+
+                    <h4>License:</h4>
+                    <p>
+                      Distributed under a permissive open-source license (Apache 2.0
+                      or MIT)
+                    </p>
+                    <p className="exclusion-note">
+                      *Excludes AI tools and MLOps adapters
+                    </p>
+                  </div>
+
+                  <a 
+                    href="https://calendly.com/anv2127-columbia/30min"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="pricing-cta"
+                    style={{ textDecoration: 'none' }}
+                  >
+                    Get Started
+                  </a>
+                </div>
+
+                {/* Commercial License Card */}
+                <div className="pricing-card premium">
+                  <div className="pricing-header">
+                    <h3>Commercial License</h3>
+                    <div className="price">Paid Add-Ons</div>
+                    <div className="license-type">Enterprise Features</div>
+                  </div>
+
+                  <div className="pricing-features">
+                    <h4>Everything in Community, plus:</h4>
+                    <div className="addon-feature">
+                      <h4>Automated Data Entry (AI Tools)</h4>
+                      <div className="addon-price">$100/project</div>
+                      <ul>
+                        <li>Automates data entry tasks</li>
+                        <li>Reduces manual input</li>
+                        <li>Improves accuracy</li>
+                        <li>API access or downloadable plugin</li>
+                      </ul>
+                    </div>
+
+                    <div className="addon-feature">
+                      <h4>MLOps Integration</h4>
+                      <div className="addon-price">Custom pricing</div>
+                      <ul>
+                        <li>Connects MLOps platforms</li>
+                        <li>Automatic metrics updates</li>
+                        <li>Project thresholds tracking</li>
+                        <li>Enterprise integration support</li>
+                      </ul>
+                    </div>
+                  </div>
+
+                  <a 
+                    href="https://calendly.com/anv2127-columbia/30min"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="pricing-cta"
+                    style={{ textDecoration: 'none' }}
+                  >
+                    Contact Sales
+                  </a>
+                </div>
+              </div>
+            </div>
           </div>
-        </div>
-      </div>
-    </div>
+        } />
+      </Routes>
+    </Router>
   );
 }
 
