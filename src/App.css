@@ -714,6 +714,7 @@
 
 .pricing-card {
   flex: 1;
+  width: 400px;
   min-width: 300px;
   max-width: 400px;
   display: flex;
@@ -725,7 +726,7 @@
   border-radius: 10px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   background-color: white;
-  min-height: 700px;
+  min-height: 650px;
 }
 
 .pricing-card:hover {
@@ -756,6 +757,7 @@
 .license-type {
   color: #718096;
   font-size: 1rem;
+  margin-bottom: 0.5rem;
 }
 
 .pricing-features {
@@ -763,13 +765,14 @@
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
-  min-height: 500px;
+  min-height: 450px;
+  margin-bottom: 2rem;
 }
 
 .pricing-features h4 {
   color: #2d3748;
   font-size: 1.2rem;
-  margin: 1.5rem 0 0.75rem 0;
+  margin: 1rem 0;
 }
 
 .pricing-features ul {
@@ -811,6 +814,19 @@
   border-radius: 8px;
 }
 
+.addon-feature:last-child {
+  margin-bottom: 0;
+}
+
+.addon-feature h4 {
+  margin: 0 0 0.5rem 0;
+  font-size: 1.1rem;
+}
+
+.addon-feature ul {
+  margin-bottom: 0;
+}
+
 .addon-price {
   color: #4299e1;
   font-weight: 600;
@@ -818,22 +834,28 @@
 }
 
 .pricing-cta {
-  margin-top: 2rem;
-  align-self: center;
+  margin-top: auto;
+  width: auto;
+  padding: 1rem 2rem;
+  text-align: center;
   background-color: #4299e1;
   color: white;
   border: none;
-  padding: 0.75rem 1.5rem;
   border-radius: 8px;
   cursor: pointer;
   transition: all 0.3s ease;
   text-decoration: none;
   font-weight: 500;
+  font-size: 1.1rem;
+  display: inline-block;
+  align-self: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .pricing-cta:hover {
   background-color: #3182ce;
   transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
 }
 
 @media (max-width: 968px) {

@@ -1,6 +1,4 @@
-import { FaGithub } from "react-icons/fa";
 import { GiParachute } from "react-icons/gi";
-import { Link } from "react-router-dom";
 import BlogPost from './BlogPost';
 import Navbar from './Navbar';
 import { useState } from 'react';

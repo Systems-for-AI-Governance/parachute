@@ -5,7 +5,7 @@ import "./App.css";
 import { GiParachute } from "react-icons/gi"; // Most literal parachute icon
 import { useState } from "react";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Blog from './components/Blog';
 import Navbar from './components/Navbar';
 
@@ -339,12 +339,6 @@ function App() {
                       <li>Community support</li>
                       <li>Manual workflows</li>
                     </ul>
-
-                    <h4>Purpose:</h4>
-                    <p>
-                      Ensure accessibility for organizations to adopt the platform for
-                      manual workflows and collaboration.
-                    </p>
 
                     <h4>License:</h4>
                     <p>

@@ -1,4 +1,4 @@
-import { FaGithub } from "react-icons/fa";
+import React from 'react';
 import { GiParachute } from "react-icons/gi";
 import { Link } from "react-router-dom";
 
