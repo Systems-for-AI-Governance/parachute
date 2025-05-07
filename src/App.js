@@ -373,7 +373,7 @@ function App() {
                     <h4>Everything in Community, plus:</h4>
                     <div className="addon-feature">
                       <h4>Automated Data Entry (AI Tools)</h4>
-                      <div className="addon-price">$100/project</div>
+                      <div className="addon-price">Custom Pricing</div>
                       <ul>
                         <li>Automates data entry tasks</li>
                         <li>Reduces manual input</li>
